@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        bean: config a bean object, give the object to IOC(inversion of control) container to handle it
+    -->
+    <bean id="helloworld" class="org.example.spring.pojo.HelloWorld"/>
+    <bean id="studentOne" class="org.example.spring.pojo.Student"/>
+</beans>
