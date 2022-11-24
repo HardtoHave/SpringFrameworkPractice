@@ -7,4 +7,5 @@
     -->
     <bean id="helloworld" class="org.example.spring.pojo.HelloWorld"/>
     <bean id="studentOne" class="org.example.spring.pojo.Student"/>
+<!--    <bean id="studentTwo" class="org.example.spring.pojo.Student"/>-->
 </beans>
