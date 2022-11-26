@@ -1,10 +1,15 @@
 package org.example.spring.pojo;
 
+import java.util.Arrays;
+
 public class Student {
     private Integer sid;
     private String sname;
     private Integer age;
     private String gender;
+    private Double score;
+    private Clazz clazz;
+    private String[] hobby;
 
     public Student() {
     }
@@ -14,6 +19,13 @@ public class Student {
         this.sname = sname;
         this.age = age;
         this.gender = gender;
+    }
+
+    public Student(Integer sid, String sname, String gender, Double score) {
+        this.sid = sid;
+        this.sname = sname;
+        this.gender = gender;
+        this.score = score;
     }
 
     public Integer getSid() {
@@ -48,6 +60,30 @@ public class Student {
         this.gender = gender;
     }
 
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
+    public Clazz getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
+    }
+
+    public String[] getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String[] hobby) {
+        this.hobby = hobby;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -55,6 +91,9 @@ public class Student {
                 ", sname='" + sname + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", score=" + score +
+                ", clazz=" + clazz +
+                ", hobby=" + Arrays.toString(hobby) +
                 '}';
     }
 }
