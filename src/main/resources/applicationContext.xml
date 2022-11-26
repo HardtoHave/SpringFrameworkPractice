@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
     <!--
         bean: config a bean object, give the object to IOC(inversion of control) container to handle it
@@ -29,15 +30,38 @@
                 <value>B</value>
             </array>
         </property>
+<!--        <property name="teacherMap">-->
+<!--            <map>-->
+<!--                <entry key="1" value-ref="teacherOne"/>-->
+<!--                <entry key="2" value-ref="teacherTwo"/>-->
+<!--            </map>-->
+<!--        </property>-->
+        <property name="teacherMap" ref="teacherMap"/>
     </bean>
     <bean id="clazzOne" class="org.example.spring.pojo.Clazz">
         <property name="cid" value="1"/>
         <property name="cname" value="C1"/>
-        <property name="students">
-            <list>
-                <ref bean="studentOne"/>
-            </list>
-        </property>
+<!--        <property name="students">-->
+<!--            <list>-->
+<!--                <ref bean="studentOne"/>-->
+<!--            </list>-->
+<!--        </property>-->
+        <property name="students" ref="studentList"/>
     </bean>
-    <util:list id="studentList"></util:list>
+    <bean id="teacherOne" class="org.example.spring.pojo.Teacher">
+        <property name="tid" value="001"/>
+        <property name="tname" value="Alice"/>
+    </bean>
+    <bean id="teacherTwo" class="org.example.spring.pojo.Teacher">
+        <property name="tid" value="002"/>
+        <property name="tname" value="Bob"/>
+    </bean>
+    <util:list id="studentList">
+        <ref bean="studentOne"/>
+    </util:list>
+    <util:map id="teacherMap">
+        <entry key="1" value-ref="teacherOne"/>
+        <entry key="2" value-ref="teacherTwo"/>
+    </util:map>
+    <bean id="studentTwo" class="org.example.spring.pojo.Student" p:sid="1002" p:sname="Brand" p:teacherMap-ref="teacherMap"></bean>
 </beans>

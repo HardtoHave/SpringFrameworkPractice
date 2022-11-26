@@ -1,6 +1,7 @@
 package org.example.spring.pojo;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class Student {
     private Integer sid;
@@ -10,6 +11,7 @@ public class Student {
     private Double score;
     private Clazz clazz;
     private String[] hobby;
+    private Map<String,Teacher> teacherMap;
 
     public Student() {
     }
@@ -84,6 +86,14 @@ public class Student {
         this.hobby = hobby;
     }
 
+    public Map<String, Teacher> getTeacherMap() {
+        return teacherMap;
+    }
+
+    public void setTeacherMap(Map<String, Teacher> teacherMap) {
+        this.teacherMap = teacherMap;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -94,6 +104,7 @@ public class Student {
                 ", score=" + score +
                 ", clazz=" + clazz +
                 ", hobby=" + Arrays.toString(hobby) +
+                ", teacherMap=" + teacherMap +
                 '}';
     }
 }
