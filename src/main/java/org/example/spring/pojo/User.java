@@ -7,6 +7,7 @@ public class User {
     private Integer age;
 
     public User() {
+        System.out.println("life cycle stage 1: instance");
     }
 
     public User(Integer id, String username, String password, Integer age) {
@@ -21,6 +22,7 @@ public class User {
     }
 
     public void setId(Integer id) {
+        System.out.println("life cycle stage 2 :dependency injection");
         this.id = id;
     }
 
@@ -56,5 +58,11 @@ public class User {
                 ", password='" + password + '\'' +
                 ", age=" + age +
                 '}';
+    }
+    public void initMethod(){
+        System.out.println("life cycle stage 3 :initialization");
+    }
+    public void destroyMethod(){
+        System.out.println("life cycle stage 4 :destroy");
     }
 }
