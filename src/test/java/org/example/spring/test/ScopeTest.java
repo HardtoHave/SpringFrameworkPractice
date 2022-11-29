@@ -11,6 +11,6 @@ public class ScopeTest {
         ApplicationContext ioc=new ClassPathXmlApplicationContext("spring-scope.xml");
         Student bean = ioc.getBean(Student.class);
         Student student=ioc.getBean(Student.class);
-        System.out.println(bean==student);
+        System.out.println(bean==student );
     }
 }
