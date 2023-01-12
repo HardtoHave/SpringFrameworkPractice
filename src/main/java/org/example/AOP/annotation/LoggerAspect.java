@@ -1,6 +1,7 @@
 package org.example.AOP.annotation;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -34,5 +35,20 @@ public class LoggerAspect {
     @AfterThrowing(value = "pointCut()",throwing = "exception")
     public void afterThrowingAdviceMethod(Exception exception){
         System.out.println("LoggerAspect, exception notification: "+exception);
+    }
+    @Around("pointCut()")
+    public Object aroundAdviceMethod(ProceedingJoinPoint joinPoint){
+        Object result=null;
+        try {
+            System.out.println("pre notification");
+            result = joinPoint.proceed();
+            System.out.println("return notification");
+        }catch (Throwable throwable){
+            throwable.printStackTrace();
+            System.out.println("exception notification");
+        }finally {
+            System.out.println("back notification");
+        }
+        return result;
     }
 }
